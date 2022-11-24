@@ -17,6 +17,7 @@ the purpose of the implementation was to demonstrate knowledge of such architect
 - Use of string resources
 - Styling defaults.
 - Further Responsiveness on tablet devices.
+- Also colour pallete not perfect
 
 ## Bonus
 Also bonus broccoli illustration and gif by yours truly (yes it's janky, but it's fun!)  :)
