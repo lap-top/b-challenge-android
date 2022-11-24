@@ -1,7 +1,7 @@
 # b-challenge-android demo app
 ## Overview
 Follows clean architecture guidelines (presentation, domain, data) with
-MVMM architectural design pattern.
+MVVM architectural design pattern.
 Although it's not necessary to follow these in such a small app,
 the purpose of the implementation was to demonstrate knowledge of such architectural guidelines/patterns
 
@@ -17,6 +17,7 @@ the purpose of the implementation was to demonstrate knowledge of such architect
 - Use of string resources
 - Styling defaults.
 - Further Responsiveness on tablet devices.
+
 
 ## Video Demo
 https://drive.google.com/file/d/13U8JskCeK9wJQFDlfDY3aaP1bZKg6bFz/view
