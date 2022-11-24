@@ -55,7 +55,7 @@ fun CongratsScreen(navController: NavController) {
         )
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))
         Text(
-            "Thank!  we'll let you know when we've launched!",
+            "Thanks! We'll let you know when we've launched.",
             style = MaterialTheme.typography.headlineMedium,
             textAlign = TextAlign.Center
         )
