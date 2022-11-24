@@ -1,4 +1,4 @@
-# b-challenge-android
+# b-challenge-android demo app
 ## Overview
 Follows clean architecture guidelines (presentation, domain, data) with
 MVMM architectural design pattern.
