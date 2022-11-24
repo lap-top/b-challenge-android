@@ -40,7 +40,7 @@ fun HomeScreenInviteSent(
                 TextButton(
                     onClick = {
                         viewModel.setEmailSentFalse()
-                        navController.navigate(Screen.HomeScreen.route)
+                        navController.navigate(Screen.GoodbyeScreen.route)
                     }
                 ) {
                     Text("Confirm")

@@ -6,4 +6,5 @@ sealed class Screen(val route: String) {
     object InviteDialog : Screen("invite")
     object CongratsScreen : Screen("congrats")
     object HomeScreenInviteSent : Screen("homesent")
+    object GoodbyeScreen : Screen("goodbye")
 }
