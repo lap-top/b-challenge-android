@@ -17,7 +17,7 @@ the purpose of the implementation was to demonstrate knowledge of such architect
 - Use of string resources
 - Styling defaults.
 - Further Responsiveness on tablet devices.
-- Combine Similar compsable screens which are similar (in the case these screen were used more we would refactor)
+- Combine Similar compsable screens which are similar (in the case such screens are used more, it would be worth a refactor)
 - Handle process death
 - Also colour pallete not perfect
 
