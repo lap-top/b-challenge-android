@@ -18,6 +18,8 @@ the purpose of the implementation was to demonstrate knowledge of such architect
 - Styling defaults.
 - Further Responsiveness on tablet devices.
 
+## Bonus
+Also bonus broccoli illustration and gif by yours truly (yes it's janky, but it's fun!)  :)
 
 ## Video Demo
 https://drive.google.com/file/d/13U8JskCeK9wJQFDlfDY3aaP1bZKg6bFz/view
