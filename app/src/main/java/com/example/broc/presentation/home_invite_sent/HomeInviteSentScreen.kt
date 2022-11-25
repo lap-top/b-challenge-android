@@ -24,6 +24,8 @@ fun HomeScreenInviteSent(
     navController: NavController,
     viewModel: HomeInviteSentViewModel = hiltViewModel()
 ) {
+
+
     val dialogOpen = viewModel.dialogOpen
     if (dialogOpen.value) {
         AlertDialog(

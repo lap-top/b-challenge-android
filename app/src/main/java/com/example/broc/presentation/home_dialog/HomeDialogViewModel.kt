@@ -55,8 +55,8 @@ class HomeDialogViewModel @Inject constructor(
     private fun postInvite(name: String, email: String) {
         postInviteUseCase(name, email).onEach { result ->
             when (result) {
-                is Resource.Success<*> -> { // Save into datastore
-                    storeEmailSent(true)
+                is Resource.Success<*> -> {
+                    storeEmailSent(true).launchIn(viewModelScope)
                     _state.value = state.value.copy(isLoading = false)
                     validationChannel.send(ValidationEvent.Success)
                 }
