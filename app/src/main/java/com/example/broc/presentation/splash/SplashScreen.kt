@@ -6,9 +6,9 @@ import androidx.navigation.NavController
 import com.example.broc.presentation.navigation.Screen
 
 @Composable
-fun SplashScreen(navController: NavController, dataStoreVM: DataStoreViewModel = hiltViewModel()) {
-    if (dataStoreVM.getEmailSent() == true) {
-        navController.navigate(Screen.HomeScreenInviteSent.route) // remove me for debugging purposesw
+fun SplashScreen(navController: NavController, viewModel: SplashViewModel = hiltViewModel()) {
+    if (viewModel.getEmailSent() == true) { // Checks datastore through viewmodel
+        navController.navigate(Screen.HomeScreenInviteSent.route)
     } else {
         navController.navigate(Screen.HomeScreen.route)
     }
