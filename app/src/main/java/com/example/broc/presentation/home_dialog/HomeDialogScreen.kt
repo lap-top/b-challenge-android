@@ -16,7 +16,6 @@ import com.example.broc.presentation.navigation.Screen
 import com.example.broc.presentation.ui.theme.spacing
 
 
-
 // Had this as it's own screen as I believe modal popup with forms are not great ui/ux
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,6 +57,10 @@ fun InviteForm(viewModel: HomeDialogViewModel) {
             .fillMaxSize()
             .padding(MaterialTheme.spacing.margin)
     ) {
+        if (state.responseError != null) {
+            Text(state.responseError, color = MaterialTheme.colorScheme.error)
+        }
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
         OutlinedTextField(value = state.name,
             onValueChange = { viewModel.onEvent(HomeDialogEvent.NameChanged(it)) },
             isError = state.nameError != null,
@@ -120,9 +123,7 @@ fun InviteForm(viewModel: HomeDialogViewModel) {
             Text("Submit", Modifier.padding(ButtonDefaults.ContentPadding))
         }
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-        if (state.responseError != null) {
-            Text(state.responseError)
-        } else if (state.isLoading) {
+        if (state.isLoading) {
             Text("Please wait one moment.")
         }
     }
