@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 4dp grid -->
+    <dimen name="S">4dp</dimen>
+    <dimen name="XS">8dp</dimen>
+    <dimen name="M">12dp</dimen>
+    <dimen name="L">16dp</dimen>
+    <dimen name="XL">20dp</dimen>
+    <dimen name="XXL">24dp</dimen>
+    <!-- Use Cases-->
+    <!-- Group refers to elements which should visually be grouped together. -->
+    <dimen name="margin_app">@dimen/XXL</dimen>
+    <dimen name="margin_group">@dimen/XS</dimen>
+    <dimen name="spacing_group">@dimen/S</dimen>
+
+</resources>

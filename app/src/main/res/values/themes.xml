@@ -1,5 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Broc" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Broc" parent="@style/Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+
+
+    <style name="Theme.Broc.Light">
+        <item name="colorPrimary">@color/broc_green_dark</item>
+        <item name="colorPrimaryVariant">@color/broc_green_dark_variant</item>
+        <item name="colorSecondary">@color/broc_green_light</item>
+        <item name="colorSecondaryVariant">@color/broc_green_light_variant</item>
+    </style>
+
+
 </resources>
