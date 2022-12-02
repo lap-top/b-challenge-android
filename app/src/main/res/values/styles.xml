@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Broc.MaterialButtonStyle" parent="@style/Widget.Material3.Button">
+
+        <item name="android:padding">18dp</item>
+    </style>
+
+    <style name="Widget.Broc.TextViewBody.Dark" parent="@style/TextAppearance.Broc.BodyLarge">
+        <item name="android:textColor">@color/broc_green_light_variant</item>
+    </style>
+
+    <style name="Widget.Broc.TextViewBody.Light" parent="@style/TextAppearance.Broc.BodyLarge">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+</resources>

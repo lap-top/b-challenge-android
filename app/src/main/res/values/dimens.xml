@@ -9,7 +9,7 @@
     <dimen name="XXL">24dp</dimen>
     <!-- Use Cases-->
     <!-- Group refers to elements which should visually be grouped together. -->
-    <dimen name="margin_app">@dimen/XXL</dimen>
+    <dimen name="margin_app">32dp</dimen>
     <dimen name="margin_group">@dimen/XS</dimen>
     <dimen name="spacing_group">@dimen/S</dimen>
 

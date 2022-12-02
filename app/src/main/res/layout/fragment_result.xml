@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.broc.presentation.f_home.HomeViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/divider"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_app"
+        android:paddingRight="@dimen/margin_app"
+        android:showDividers="middle"
+        android:theme="@style/Theme.Broc.Light"
+        tools:context="presentation.f_result.ResultFragment">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="130sp"
+            android:layout_height="130sp"
+            android:layout_margin="@dimen/spacing_group"
+            android:src="@drawable/broc" />
+
+        <TextView
+            android:id="@+id/tvMain"
+            style="@style/TextAppearance.Broc.TitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.state.email.empty ? @string/result_cancel: @string/result_sent(viewModel.state.email)}"
+            android:textAlignment="center" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_group"
+            android:text="Home"
+            android:textStyle="normal" />
+    </LinearLayout>
+</layout>

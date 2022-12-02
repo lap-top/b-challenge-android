@@ -1,0 +1,88 @@
+<resources>
+    <!-- HEADLINE -->
+    <style name="TextAppearance.Broc.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Broc.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Broc.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- DISPLAY -->
+    <style name="TextAppearance.Broc.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="lineHeight">22sp</item>
+    </style>
+
+    <style name="TextAppearance.Broc.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="TextAppearance.Broc.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="lineHeight">28sp</item>
+    </style>
+
+    <!-- BODY -->
+    <style name="TextAppearance.Broc.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="TextAppearance.Broc.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="TextAppearance.Broc.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/open_sans_light</item>
+    </style>
+
+    <!-- LABEL -->
+    <style name="TextAppearance.Broc.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/open_sans_bold</item>
+        <item name="fontStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Broc.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/open_sans_semibold</item>
+    </style>
+
+    <style name="TextAppearance.Broc.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@font/open_sans_semibold</item>
+    </style>
+
+    <!-- TITLE -->
+    <style name="TextAppearance.Broc.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="TextAppearance.Broc.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+    <style name="TextAppearance.Broc.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <!-- OTHER -->
+    <style name="TextAppearance.Broc.MaterialTimePicker.Title" parent="TextAppearance.Material3.MaterialTimePicker.Title">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="TextAppearance.Broc.BrandLogo" parent ="">
+        <item name="fontFamily">@font/luckiest_guy</item>
+        <item name="android:textSize">42sp</item>
+    </style>
+
+    <style name="TextAppearance.Broc.BodySmall.Error" parent ="TextAppearance.Broc.BodySmall">
+        <item name="android:textColor">@color/design_default_color_error</item>
+    </style>
+
+
+
+</resources>

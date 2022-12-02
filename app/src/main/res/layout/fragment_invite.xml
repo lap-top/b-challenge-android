@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.broc.presentation.f_invite.InviteViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:theme="@style/Theme.Broc.Light"
+        android:layout_width="match_parent"
+        tools:context=".presentation.f_home.InviteFragment"
+        >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:elevation="20dp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back"
+            app:navigationIconTint="@color/white"
+            app:subtitleTextColor="#FFFFFF"
+            app:title="Request Invite"
+            app:titleTextColor="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/margin_app"
+            android:paddingRight="@dimen/margin_app"
+
+            android:orientation="vertical"
+            tools:context=".FragmentInvite">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_group"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:text="@={viewModel.state.name}"
+                    android:hint="Name"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/TextAppearance.Broc.BodySmall.Error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.state.nameError}" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_group"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.state.email}"
+                    android:layout_width="match_parent"
+                    android:hint="Email"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/TextAppearance.Broc.BodySmall.Error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.state.emailError}"
+                />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_group"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.state.confirmEmail}"
+                    android:layout_width="match_parent"
+                    android:hint="Confirm Email"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/TextAppearance.Broc.BodySmall.Error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text= "@{viewModel.state.confirmEmailError}"
+                android:textColor="@color/design_default_color_error"
+                />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_group"/>
+
+            <Button
+                android:id="@+id/btnMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send"/>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/spacing_group"/>
+
+            <TextView
+                style="@style/TextAppearance.Broc.BodyMedium"
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@{viewModel.state.isLoading ? @color/black:  @color/error}"
+                android:text="@{viewModel.state.isLoading ? @string/loading : viewModel.state.responseError}"
+                android:textAlignment="center" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

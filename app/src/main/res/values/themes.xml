@@ -1,16 +1,55 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
 
-    <style name="Theme.Broc" parent="@style/Theme.Material3.DayNight.NoActionBar">
 
+
+
+    <style name="Theme.Broc" parent="@style/Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/broc_green_dark</item>
+        <item name="colorPrimaryVariant">@color/broc_green_dark_variant</item>
+
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Broc.LabelLarge</item>
+        <item name= "textAppearanceLabelMedium">@style/TextAppearance.Broc.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Broc.LabelSmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Broc.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Broc.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Broc.HeadlineSmall</item>
+
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.Broc.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.Broc.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.Broc.DisplaySmall</item>
+
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Broc.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Broc.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Broc.BodySmall</item>
+
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Broc.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Broc.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.Broc.TitleSmall</item>
+
+        <item name="materialButtonStyle">@style/Widget.Broc.MaterialButtonStyle</item>
     </style>
 
-
-    <style name="Theme.Broc.Light">
+    <style name="Theme.Broc.Light" parent="Theme.Broc">
+        <item name="android:textColor">@color/black</item>
         <item name="colorPrimary">@color/broc_green_dark</item>
         <item name="colorPrimaryVariant">@color/broc_green_dark_variant</item>
         <item name="colorSecondary">@color/broc_green_light</item>
         <item name="colorSecondaryVariant">@color/broc_green_light_variant</item>
+    </style>
+
+    <style name="Theme.Broc.Dark" parent="Theme.Broc">
+        <item name="android:paddingLeft">@dimen/margin_app</item>
+        <item name="android:paddingRight">@dimen/margin_app</item>
+        <item name="android:windowBackground">@color/broc_green_dark</item>
+        <item name="android:background">@color/broc_green_dark</item>
+        <item name="android:textColor">@color/broc_green_light_variant</item>
+
+        <item name="colorPrimary">@color/broc_green_light</item>
+        <item name="colorPrimaryVariant">@color/broc_green_light_variant</item>
+        <item name="colorOnPrimary">@color/broc_green_dark</item>
+        <item name="colorSecondary">@color/broc_green_dark</item>
+        <item name="colorSecondaryVariant">@color/broc_green_dark</item>
     </style>
 
 

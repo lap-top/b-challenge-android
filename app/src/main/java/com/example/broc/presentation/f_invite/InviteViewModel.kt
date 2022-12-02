@@ -1,23 +1,19 @@
-package com.example.broc.presentation.home_dialog
+package com.example.broc.presentation.f_invite
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.broc.common.Resource
 import com.example.broc.domain.use_case.*
+import com.example.broc.presentation.home_dialog.InviteEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
-
 
 // Maps use cases to compose
 @HiltViewModel
-class HomeDialogViewModel @Inject constructor(
+class InviteViewModel @Inject constructor(
     private val validateName: ValidateName = ValidateName(),
     private val validateEmail: ValidateEmail = ValidateEmail(),
     private val validateRepeatedEmail: ValidateRepeatedEmail = ValidateRepeatedEmail(),
@@ -25,46 +21,42 @@ class HomeDialogViewModel @Inject constructor(
     private val storeEmailSent: StoreEmailSent
 ) : ViewModel() {
     // private mutable state so state cannot be tampered with from view
-    private val _state = mutableStateOf(HomeDialogState())
-    val state: State<HomeDialogState> = _state
-    private val validationChannel: Channel<ValidationEvent> = Channel()
-    val validationEvents: Flow<ValidationEvent> = validationChannel.receiveAsFlow()
+    private val _state = MutableStateFlow(InviteState())
+
+    val state: StateFlow<InviteState> = _state
+    private val responseEventChannel: Channel<ResponseEvent> = Channel()
+    val responseEvents: Flow<ResponseEvent> = responseEventChannel.receiveAsFlow()
 
     // Events called from View
-    fun onEvent(event: HomeDialogEvent) {
+    fun onEvent(event: InviteEvent) {
         _state.value = state.value.copy(responseError = null)
         when (event) {
-
-            is HomeDialogEvent.NameChanged -> {
-                _state.value = state.value.copy(name = event.name)
-            }
-            is HomeDialogEvent.EmailChanged -> {
-                _state.value = state.value.copy(email = event.email)
-            }
-            is HomeDialogEvent.ConfirmEmailChanged -> {
-                _state.value = state.value.copy(confirmEmail = event.confirmEmail)
-            }
-            is HomeDialogEvent.Submit -> {
+            is InviteEvent.Submit -> {
                 if (!validateAll()) {
-                    postInvite(_state.value.name, _state.value.email)
+                    postInvite(_state.value.name.get()!!, _state.value.email.get()!!)
                 }
             }
         }
     }
+
     // When validation passes, we call api (use case) in coroutine
     private fun postInvite(name: String, email: String) {
         postInviteUseCase(name, email).onEach { result ->
             when (result) {
-                is Resource.Success<*> -> {
-                    storeEmailSent(true).launchIn(viewModelScope)
-                    _state.value = state.value.copy(isLoading = false)
-                    validationChannel.send(ValidationEvent.Success)
+                is Resource.Success -> {
+                    Log.wtf("testing2", "testie")
+                    storeEmailSent(email).onCompletion {
+                        _state.value = InviteState() // Reset State
+                        responseEventChannel.send(ResponseEvent.Success)
+                    }.launchIn(viewModelScope)
                 }
-                is Resource.Error<*> -> {
+                is Resource.Error -> {
+                    Log.wtf("testing3", "testie")
                     _state.value =
                         state.value.copy(responseError = result.message, isLoading = false)
                 }
-                is Resource.Loading<*> -> {
+                is Resource.Loading -> {
+                    Log.wtf("testing4", "testie")
                     _state.value = state.value.copy(isLoading = true)
                 }
             }
@@ -74,10 +66,12 @@ class HomeDialogViewModel @Inject constructor(
 
     // validates all fields by calling their respected use case for validation
     private fun validateAll(): Boolean {
-        val emailResult = validateEmail.invoke(_state.value.email)
-        val confirmEmailResult =
-            validateRepeatedEmail.invoke(_state.value.email, _state.value.confirmEmail)
-        val nameResult = validateName.invoke(_state.value.name)
+        val emailResult = validateEmail.invoke(_state.value.email.get()!!)
+        val confirmEmailResult = validateRepeatedEmail.invoke(
+            _state.value.email.get()!!,
+            _state.value.confirmEmail.get()!!
+        )
+        val nameResult = validateName.invoke(_state.value.name.get()!!)
 
         val hasError = listOf(
             emailResult,
@@ -93,9 +87,8 @@ class HomeDialogViewModel @Inject constructor(
         return hasError
     }
 
-    sealed class ValidationEvent {
-        object Success : ValidationEvent()
+    sealed class ResponseEvent {
+        object Success : ResponseEvent()
     }
-
 
 }

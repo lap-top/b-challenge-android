@@ -8,6 +8,7 @@ import com.example.broc.data.repository.MailRepositoryImpl
 import com.example.broc.domain.repository.DataStoreRepo
 import com.example.broc.domain.repository.MailRepository
 import com.google.gson.GsonBuilder
+import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,14 +26,12 @@ object AppModule {
     @Provides
     @Singleton
     fun provideBroccoliApi(): BroccoliApi {
-        val gson = GsonBuilder()
-            .setLenient()
-            .create()
+        val gson = GsonBuilder().setLenient().create()
 
         return Retrofit.Builder().baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
-            .create(BroccoliApi::class.java)
+            .addCallAdapterFactory(NetworkResponseAdapterFactory())
+            .build().create(BroccoliApi::class.java)
     }
 
 

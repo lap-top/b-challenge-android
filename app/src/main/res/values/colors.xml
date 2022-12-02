@@ -3,8 +3,9 @@
     <!--theme colors-->
     <color name="broc_green_dark">#FF305E3A</color>
     <color name="broc_green_dark_variant">#366A41</color>
-    <color name="broc_green_light">#FFE4FFDF</color>
-    <color name="broc_green_light_variant">#B9F6CA</color>
+    <color name="broc_green_light">#FFD1FFA4</color>FFD1FFA4
+    <color name="broc_green_light_variant">#FFE4FFDF</color>
+    <color name="error">#FF1E1E</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

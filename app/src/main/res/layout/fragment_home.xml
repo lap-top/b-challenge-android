@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.home.HomeFragment"
-    android:gravity="center"
-    android:orientation="vertical"
-    >
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.broc.presentation.f_home.HomeViewModel" />
+    </data>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Broccoli and Co." />
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_marginTop="@dimen/spacing_group"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Request Invite"
-        />
+        android:theme="@style/Theme.Broc.Dark"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutContent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="@drawable/divider"
+        tools:context=".presentation.f_home.HomeFragment">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/brocman" />
+
+        <TextView
+            style="@style/TextAppearance.Broc.BrandLogo"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Broccoli &amp; Co." />
+
+        <TextView
+            style="@style/Widget.Broc.TextViewBody.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{@string/motto + `\n` + (viewModel.state.email.blank ? @string/home_email_notsent: @string/home_email_sent(viewModel.state.email)) }" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_group"
+            android:text="@{viewModel.state.email.empty ? `Request Invite` : `Cancel Invite`}"
+            android:textStyle="normal"/>
+
+    </LinearLayout>
+
+</layout>
