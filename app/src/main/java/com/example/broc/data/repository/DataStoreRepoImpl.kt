@@ -30,7 +30,7 @@ class DataStoreRepoImpl @Inject constructor(
         try {
             val preferenceKey = stringPreferencesKey(key)
             val preference = context.dataStore.data.first()
-            return Resource.Success(preference[preferenceKey]?: "")
+            return Resource.Success(preference[preferenceKey] ?: "")
         } catch (e: Exception) {
         }
         return Resource.Error(message = "No Contents yet found in data store")
