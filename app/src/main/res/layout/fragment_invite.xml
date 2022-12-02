@@ -47,10 +47,11 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    style="@style/Widget.Broc.EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Name"
+                    android:inputType="text"
+                    android:maxLines="1"
                     android:text="@={viewModel.state.name}" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -68,12 +69,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <com.google.android.material.textfield.TextInputEditText
-                    android:text="@={viewModel.state.email}"
-                    style="@style/Widget.Broc.EditText"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:layout_height="wrap_content"/>
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:text="@={viewModel.state.email}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -89,12 +92,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <com.google.android.material.textfield.TextInputEditText
-                    android:text="@={viewModel.state.confirmEmail}"
                     android:layout_width="match_parent"
-                    style="@style/Widget.Broc.EditText"
+                    android:layout_height="wrap_content"
                     android:hint="Confirm Email"
-                    android:layout_height="wrap_content"/>
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:text="@={viewModel.state.confirmEmail}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView

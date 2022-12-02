@@ -15,6 +15,7 @@
 
     <style name="Widget.Broc.EditText" parent="@style/TextAppearance.Broc.BodyLarge">
         <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
     </style>
 
 
