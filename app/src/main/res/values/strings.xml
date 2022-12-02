@@ -6,14 +6,6 @@
     <string name="motto">Better way. Better day.</string>
     <string name="home_email_notsent">Request an invite to know when we launch!</string>
     <string name="loading">Please wait one moment...</string>
-    <string name="generic_error">Unexpected error occurred, try restarting the app.</string>
-    <string name="network_error">Please check your internet connection.</string>
-
-    <string name="validation_email_match">Emails must match.</string>
-    <string name="validation_email_blank">Email must not be blank.</string>
-    <string name="validation_email_format">Email must be valid format.</string>
-    <string name="validation_name_length">Name must be at least 3 characters long.</string>
-    <string name="validation_name_format">Name must contain only letters and spacing.</string>
 
 
 </resources>

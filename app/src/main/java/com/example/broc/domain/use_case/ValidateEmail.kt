@@ -1,7 +1,7 @@
 package com.example.broc.domain.use_case
 
 import android.util.Patterns
-import com.example.broc.R
+import com.example.broc.common.Constants
 import javax.inject.Inject
 
 
@@ -10,13 +10,13 @@ class ValidateEmail @Inject constructor() {
         if (email.isBlank()) {
             return ValidationResponse(
                 success = false,
-                R.string.validation_email_blank.toString()
+                Constants.VALIDATION_EMAIL_BLANK
             ) // use string resources
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return ValidationResponse(
                 success = false,
-                errorMessage = R.string.validation_email_format.toString()
+                errorMessage = Constants.VALIDATION_EMAIL_FORMAT
             )
         }
         return ValidationResponse(success = true)

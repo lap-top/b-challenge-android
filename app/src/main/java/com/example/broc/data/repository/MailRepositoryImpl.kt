@@ -1,6 +1,6 @@
 package com.example.broc.data.repository
 
-import com.example.broc.R
+import com.example.broc.common.Constants
 import com.example.broc.common.Resource
 import com.example.broc.data.remote.BroccoliApi
 import com.example.broc.data.remote.ErrorResponse
@@ -18,13 +18,13 @@ class MailRepositoryImpl @Inject constructor(
                 Resource.Success(true)
             }
             is NetworkResponse.NetworkError<*, *> -> {
-                Resource.Error(message = R.string.network_error.toString())
+                Resource.Error(message = Constants.ERROR_NETWORK)
             }
             is NetworkResponse.ServerError<*, ErrorResponse> -> {
                 Resource.Error(message = post.body?.errorMessage!!)
             }
             else -> {
-                Resource.Error(message = R.string.generic_error.toString())
+                Resource.Error(message = Constants.ERROR_GENERIC)
             }
         }
     }
