@@ -34,7 +34,7 @@ class HomeViewModel @Inject constructor(
         getEmailSent().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    if (result.data != "") {
+                    if (result.data.isNotBlank()) {
                         _state.value = HomeState(email = result.data)
                     } else {
                         _state.value = HomeState()
