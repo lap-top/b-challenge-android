@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">broc</string>
     <string name="home_email_sent">you have an invitation sent to %s</string>
-    <string name="result_sent">Email sent to %s \n We\'ll let you know when we launch.</string>
+    <string name="result_sent">Email sent to \n%s\n We\'ll let you know when we launch.</string>
     <string name="result_cancel">Noo! It\'s sad to see you go, in the meantime stay happy and awesome.</string>
     <string name="motto">Better way. Better day.</string>
     <string name="home_email_notsent">Request an invite to know when we launch!</string>
