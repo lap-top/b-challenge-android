@@ -14,6 +14,3 @@ the purpose of the implementation was to demonstrate knowledge of such architect
 
 ## Bonus
 Also bonus broccoli illustration and gif by yours truly (yes it's janky, but it's fun!)  :)
-
-## Video Demo, Keep in mind screen after cancel invite alert is not in video, although in the current repo.
-https://drive.google.com/file/d/13U8JskCeK9wJQFDlfDY3aaP1bZKg6bFz/view
