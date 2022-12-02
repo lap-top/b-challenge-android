@@ -13,5 +13,9 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="Widget.Broc.EditText" parent="@style/TextAppearance.Broc.BodyLarge">
+        <item name="android:maxLines">1</item>
+    </style>
+
 
 </resources>

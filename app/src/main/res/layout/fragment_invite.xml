@@ -45,11 +45,13 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <com.google.android.material.textfield.TextInputEditText
+                    style="@style/Widget.Broc.EditText"
                     android:layout_width="match_parent"
-                    android:text="@={viewModel.state.name}"
+                    android:layout_height="wrap_content"
                     android:hint="Name"
-                    android:layout_height="wrap_content"/>
+                    android:text="@={viewModel.state.name}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,6 +70,7 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                     android:text="@={viewModel.state.email}"
+                    style="@style/Widget.Broc.EditText"
                     android:layout_width="match_parent"
                     android:hint="Email"
                     android:layout_height="wrap_content"/>
@@ -89,6 +92,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:text="@={viewModel.state.confirmEmail}"
                     android:layout_width="match_parent"
+                    style="@style/Widget.Broc.EditText"
                     android:hint="Confirm Email"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
