@@ -1,6 +1,7 @@
 package com.example.broc.presentation.f_result
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.broc.R
 import com.example.broc.databinding.FragmentResultBinding
 import com.example.broc.presentation.f_home.HomeViewModel
@@ -20,6 +22,7 @@ class ResultFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel.getEmail()
     }
+    val args: ResultFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,15 +30,15 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_result, container, false)
-        binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.email = args.email
         binding.btnMain.setOnClickListener {
             val action = ResultFragmentDirections.actionResultFragmentToHomeFragment()
             findNavController().navigate(action)
         }
         return binding.root
-
     }
+
 
 
 }

@@ -1,5 +1,5 @@
 package com.example.broc.presentation.f_home
 
 data class HomeState(
-    val email: String = "",
+    val emails: Map<String, Boolean>? = null,
 )

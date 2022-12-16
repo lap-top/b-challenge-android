@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_invite" >
         <action
             android:id="@+id/action_fragmentInvite_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment">
+
+        </action>
         <action
             android:id="@+id/action_fragmentInvite_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -23,6 +25,10 @@
         android:id="@+id/resultFragment"
         android:name="com.example.broc.presentation.f_result.ResultFragment"
         android:label="ResultFragment" >
+        <argument
+            android:name="email"
+            app:argType="string"
+            android:defaultValue=""/>
         <action
             android:id="@+id/action_resultFragment_to_homeFragment"
             app:destination="@id/homeFragment"

@@ -8,14 +8,18 @@ import com.example.broc.R
 import com.example.broc.presentation.f_home.HomeViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-class InviteCancelDialogFragment : DialogFragment() {
+class InviteCancelDialogFragment(private val buttonsChecked: Boolean = false) : DialogFragment() {
     private val viewModel: HomeViewModel by hiltNavGraphViewModels(R.id.nav_graph)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext()).setTitle("Cancel Invite")
-            .setMessage("Are you sure you want to cancel your invitation?")
-            .setNegativeButton("No") { _, _ ->
-            }.setPositiveButton("yes") { _, _ ->
-                viewModel.cancelInvite()
+        MaterialAlertDialogBuilder(requireContext()).setTitle("Cancel Invites")
+            .setMultiChoiceItems(
+                viewModel.emails.value.map { it.email }.toTypedArray(),
+                viewModel.emails.value.map{!it.active}.toBooleanArray()) { _, which, _ ->
+                    viewModel.emails.value[which].active = !viewModel.emails.value[which].active
+            }
+            .setNegativeButton("Cancel") { _, _ ->
+            }.setPositiveButton("Confirm") { dialog, _ ->
+                viewModel.cancelInvites()
             }.create()
 }

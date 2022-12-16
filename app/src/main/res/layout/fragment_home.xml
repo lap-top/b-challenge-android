@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View"/>
@@ -34,20 +35,27 @@
             android:layout_height="wrap_content"
             android:text="Broccoli &amp; Co." />
 
-        <TextView
-            style="@style/Widget.Broc.TextViewBody.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@{@string/motto + `\n` + (viewModel.state.email.blank ? @string/home_email_notsent: @string/home_email_sent(viewModel.state.email)) }" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_group"
-            android:text="@{viewModel.state.email.empty ? `Request Invite` : `Cancel Invite`}"
+            android:text="@string/button_email_request"
             android:textStyle="normal"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelInvites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_group"
+            android:text="Cancel Invites"
+            android:textColor="@color/broc_green_light"
+            android:textStyle="normal"
+            android:visibility="@{viewModel.emails.empty ? View.INVISIBLE : View.VISIBLE}"
+            app:backgroundTint="#00000000"
+            app:strokeColor="@color/broc_green_light"
+            app:strokeWidth="2dp" />
+
 
     </LinearLayout>
 

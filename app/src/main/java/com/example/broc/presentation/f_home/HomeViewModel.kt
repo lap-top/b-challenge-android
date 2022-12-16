@@ -3,47 +3,37 @@ package com.example.broc.presentation.f_home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.broc.common.Resource
-import com.example.broc.domain.use_case.GetEmailSent
-import com.example.broc.domain.use_case.StoreEmailSent
+import com.example.broc.domain.model.EmailInvite
+import com.example.broc.domain.use_case.GetEmailsActive
+import com.example.broc.domain.use_case.ToggleEmailInvites
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getEmailSent: GetEmailSent,
-    private val storeEmailSent: StoreEmailSent
+    private val getEmailsActive: GetEmailsActive,
+    private val toggleEmailInvites: ToggleEmailInvites
 ) : ViewModel() {
-    private val _state = MutableStateFlow(HomeState())
 
-    // The UI collects from this StateFlow to get its state updates
-    val state: StateFlow<HomeState> = _state
+    val emails: MutableStateFlow<List<EmailInvite>> = MutableStateFlow(emptyList())
 
-    private val responseEventChannel: Channel<ResponseEvent> = Channel()
-    val responseEvents: Flow<ResponseEvent> = responseEventChannel.receiveAsFlow()
 
-    fun cancelInvite() {
-        storeEmailSent("").onCompletion {
-            _state.value = HomeState(email = "")
-            responseEventChannel.send(ResponseEvent.Success)
+    fun cancelInvites() {
+        toggleEmailInvites(emails.value).onCompletion{
+            emails.value = emails.value.filter{ item -> item.active }
         }.launchIn(viewModelScope)
     }
 
     fun getEmail() {
-        getEmailSent().onEach { result ->
+        getEmailsActive().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    if (result.data.isNotBlank()) {
-                        _state.value = HomeState(email = result.data)
-                    } else {
-                        _state.value = HomeState()
+                    if (result.data.isNotEmpty()) {
+                        emails.value = result.data
                     }
                 }
-                is Resource.Error -> {
-                    _state.value = HomeState()
-                }
-                is Resource.Loading -> {}
+                else -> {}
             }
         }.launchIn(viewModelScope)
     }

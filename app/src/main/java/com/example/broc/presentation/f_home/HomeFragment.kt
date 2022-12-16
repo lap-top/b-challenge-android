@@ -20,14 +20,6 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // When cancel dialog is finished deleting email
-        lifecycleScope.launch {
-            viewModel.responseEvents.collect { event ->
-                if (event is HomeViewModel.ResponseEvent.Success) {
-                    findNavController().navigate(R.id.action_homeFragment_to_resultFragment)
-                }
-            }
-        }
         viewModel.getEmail()
     }
 
@@ -44,16 +36,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnMain.setOnClickListener {
-            if (viewModel.state.value.email.isEmpty()) {
                 findNavController().navigate(R.id.action_homeFragment_to_fragmentInvite)
-            } else {
-                displayCancelDialog()
-            }
         }
-    }
-
-    private fun displayCancelDialog() {
-        InviteCancelDialogFragment().show(childFragmentManager, "cancelDialog")
+        binding.cancelInvites.setOnClickListener {
+            //
+            InviteCancelDialogFragment().show(childFragmentManager, "cancelDialog")
+        }
     }
 
 }

@@ -1,15 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-
-
-
-
-
+<resources>
     <style name="Theme.Broc" parent="@style/Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/broc_green_dark</item>
         <item name="colorPrimaryVariant">@color/broc_green_dark_variant</item>
 
         <item name="textAppearanceLabelLarge">@style/TextAppearance.Broc.LabelLarge</item>
-        <item name= "textAppearanceLabelMedium">@style/TextAppearance.Broc.LabelMedium</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Broc.LabelMedium</item>
         <item name="textAppearanceLabelSmall">@style/TextAppearance.Broc.LabelSmall</item>
         <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Broc.HeadlineLarge</item>
         <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Broc.HeadlineMedium</item>

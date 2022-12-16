@@ -11,7 +11,7 @@ class ValidateEmail @Inject constructor() {
             return ValidationResponse(
                 success = false,
                 Constants.VALIDATION_EMAIL_BLANK
-            ) // use string resources
+            )
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return ValidationResponse(

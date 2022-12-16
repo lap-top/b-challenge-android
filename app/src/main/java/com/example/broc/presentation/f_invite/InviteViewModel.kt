@@ -1,6 +1,5 @@
 package com.example.broc.presentation.f_invite
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.broc.common.Resource
@@ -44,19 +43,15 @@ class InviteViewModel @Inject constructor(
         postInviteUseCase(name, email).onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    Log.wtf("testing2", "testie")
                     storeEmailSent(email).onCompletion {
-                        _state.value = InviteState() // Reset State
                         responseEventChannel.send(ResponseEvent.Success)
                     }.launchIn(viewModelScope)
                 }
                 is Resource.Error -> {
-                    Log.wtf("testing3", "testie")
                     _state.value =
                         state.value.copy(responseError = result.message, isLoading = false)
                 }
                 is Resource.Loading -> {
-                    Log.wtf("testing4", "testie")
                     _state.value = state.value.copy(isLoading = true)
                 }
             }
@@ -89,6 +84,7 @@ class InviteViewModel @Inject constructor(
 
     sealed class ResponseEvent {
         object Success : ResponseEvent()
+        object ClearFields: ResponseEvent()
     }
 
 }
